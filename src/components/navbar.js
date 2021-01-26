@@ -8,7 +8,6 @@ const Navbar = ({some}) => {
         allSitePage(sort: {order: ASC, fields: id}, filter: {}) {
         nodes {
             path,
-            internalComponentName
         }
         }
     } 
@@ -22,7 +21,7 @@ const Navbar = ({some}) => {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     {info.allSitePage.nodes.map(
-                        el => <Link className="nav-item nav-link" to={el.path}>{ el.internalComponentName.slice(9) || 'NoName'}</Link>
+                        el => <Link className="nav-item nav-link" to={el.path}>{el.path}</Link>
                     )}
                 </div>
             </div>
