@@ -29,3 +29,22 @@ collections:
             widget: string
             required: true
             label: Texto Homepage
+
+  - name: Sections
+    label: Secciones
+    folder: src/content/sections
+    description: Aca van ts secciones
+    create: true
+    delete: true
+    fields:
+      - name: name
+        widget: hidden
+        default: home-page
+      - name: enabled
+        widget: boolean
+        default: true
+        label: Home Page
+      - name: text
+        widget: string
+        required: true
+        label: Texto Homepage
