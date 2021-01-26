@@ -4,13 +4,13 @@ import { Link } from "gatsby"
 
 const Navbar = () => {
     const info = useStaticQuery(graphql`query getAllPages {
-        allSitePage(sort: {order: ASC, fields: id}, filter: {}) {
-            nodes {
-                path
-                internalComponentName
+            allSitePage(sort: {order: ASC, fields: id}, filter: {}) {
+                nodes {
+                    path,
+                    internalComponentName
+                }
             }
-        }
-    } 
+        } 
     `)
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light">

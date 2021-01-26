@@ -3,3 +3,29 @@ backend:
 
 media_folder: static/assets
 public_folder: assets
+
+collections:
+  - name: Homepage
+    label: Inicio
+    description: Contenido de la página de inicio
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files: 
+      - file: src/content/homepage.json
+        name: HomePage
+        label: HomePage
+        description: Contenido de la sección HomePage
+        fields:
+          - name: name
+            widget: hidden
+            default: home-page
+          - name: enabled
+            widget: boolean
+            default: true
+            label: Home Page
+          - name: text
+            widget: string
+            required: true
+            label: Texto Homepage
