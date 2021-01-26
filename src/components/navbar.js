@@ -1,7 +1,17 @@
 import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
 const Navbar = () => {
+    const info = useStaticQuery(graphql`query getAllPages {
+        allSitePage(sort: {order: ASC, fields: id}, filter: {}) {
+            nodes {
+                path
+                internalComponentName
+            }
+        }
+    } 
+    `)
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,7 +19,9 @@ const Navbar = () => {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <Link className="nav-item nav-link" to=''>Fr</Link>
+                    {info.allSitePage.nodes.map(
+                        el => <Link className="nav-item nav-link" to={el.path}>{ el.internalComponentName.slice(9)}</Link>
+                    )}
                 </div>
             </div>
         </nav>
