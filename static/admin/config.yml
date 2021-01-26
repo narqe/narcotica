@@ -1,0 +1,291 @@
+backend:
+  name: git-gateway
+  # name: github
+  # repo: tinchodipalma/clara-callejo-cms
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: settings
+    label: Configuración
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: siteConfig
+        file: _content/settings/site/siteConfig.json
+        label: Datos del sitio
+        description: Datos generales del sitio
+        fields:
+          - name: siteTitle
+            widget: string
+            required: true
+            label: Título del sitio
+          - name: siteDescription
+            widget: string
+            required: true
+            label: Descripción del sitio
+          - name: author
+            widget: string
+            required: true
+            label: Autor
+          - name: contactEmail
+            widget: string
+            label: Email de contacto
+            required: false
+          - name: contactPhone
+            widget: string
+            label: Teléfono de contacto
+            required: false
+          - name: socialNetworks
+            label: Redes Sociales
+            widget: object
+            fields:
+              - name: facebook
+                label: Facebook
+                required: false
+              - name: twitter
+                label: Twitter
+                required: false
+              - name: instagram
+                label: Instagram
+                required: false
+              - name: linkedin
+                label: LinkedIn
+                required: false
+              - name: youtube
+                label: YouTube
+                required: false
+              - name: pinterest
+                label: Pinterest
+                required: false
+              - name: snapchat
+                label: Snapchat
+                required: false
+              - name: tiktok
+                label: TikTok
+                required: false
+              - name: tumblr
+                label: Tumblr
+                required: false
+
+      - name: landingConfig
+        file: _content/settings/landing/landingConfig.json
+        label: Página de inicio
+        description: Configuración de la página de inicio
+        fields:
+          - {
+              name: cover,
+              label: Imagen de fondo,
+              widget: image,
+              required: true,
+              media_library: { config: { multiple: false } },
+            }
+          - { name: coverTitle, label: Título, widget: string, required: true }
+          - {
+              name: coverSubtitle,
+              label: Subtítulo,
+              widget: string,
+              required: true,
+            }
+          - { name: aboutMe, label: Sobre Mi, widget: boolean, default: true }
+          - {
+              name: activitiesList,
+              label: Listado de Actividades,
+              widget: boolean,
+              default: true,
+            }
+          - {
+              name: clientsList,
+              label: Listado de Clientes,
+              widget: boolean,
+              default: true,
+            }
+
+      - name: aboutMeConfig
+        file: content/settings/aboutMe/aboutMe.json
+        label: Sobre Mi
+        description: Datos Sobre Mi
+        fields:
+          - name: contentType
+            label: Content Type
+            widget: hidden
+            default: aboutme-item
+          - name: description
+            label: Descripción Sobre Mi
+          - name: images
+            label: Imágenes
+            widget: list
+            field:
+              name: image
+              label: Imagen
+              widget: image
+          - name: groups
+            label: Grupos
+            widget: list
+            fields:
+              - name: groupTitle
+                label: Título de Grupo
+                widget: string
+              - name: groupData
+                label: Contenido del Grupo
+                widget: list
+                field:
+                  name: groupDataItem
+                  label: Item
+
+      - name: portfolioConfig
+        file: _content/settings/portfolio/portfolio.json
+        label: Portfolio
+        description: Portfolio
+        fields:
+          - name: portfolio
+            label: Portfolio
+            widget: list
+            fields:
+              - name: contentType
+                label: Content Type
+                widget: hidden
+                default: portfolio-item
+              - name: name
+                label: Nombre
+              - name: context
+                label: Contexto
+              - name: need
+                label: Necesidad
+              - name: strategy
+                label: Estrategia
+              - name: images
+                label: Imágenes
+                widget: list
+                field:
+                  name: image
+                  label: Imagen
+                  widget: image
+
+  - name: pages
+    label: Páginas
+    folder: content/pages
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          name: contentType,
+          label: Content Type,
+          widget: hidden,
+          default: page,
+        }
+      - { name: enabled, label: Habilitado, widget: boolean, default: true }
+      - { name: aside, label: Barra Lateral, widget: boolean, default: true }
+      - { name: menu, label: Menú, widget: boolean, default: false }
+      - { name: menuTitle, label: Título de Menú }
+      - {
+          name: menuOrder,
+          label: Orden del Menú (numérico y ascendente),
+          default: '0',
+        }
+      - { name: path, label: Path }
+      - { name: title, label: Título }
+      - { name: description, label: Descripción }
+      - { name: body, label: Contenido, widget: markdown }
+
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          name: contentType,
+          label: Content Type,
+          widget: hidden,
+          default: blog-post,
+        }
+      - { name: enabled, label: Habilitado, widget: boolean, default: true }
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - {
+        name: image,
+        label: Imagen,
+        required: true,
+        widget: image,
+        media_library: { config: { multiple: false } },
+      }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: activities
+    label: Actividades
+    folder: content/activities
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          name: contentType,
+          label: Content Type,
+          widget: hidden,
+          default: activity-item,
+        }
+      - { name: enabled, label: Habilitado, widget: boolean, default: true }
+      - { name: title, label: Título, required: true }
+      - { name: description, label: Descripción, required: true }
+      - {
+          name: image,
+          label: Imagen,
+          required: true,
+          widget: image,
+          media_library: { config: { multiple: false } },
+        }
+
+  - name: clients
+    label: Clientes
+    folder: content/clients
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          name: contentType,
+          label: Content Type,
+          widget: hidden,
+          default: client-item,
+        }
+      - { name: enabled, label: Habilitado, widget: boolean, default: true }
+      - { name: label, label: Nombre, required: true }
+      - {
+          name: image,
+          label: Imagen,
+          required: true,
+          widget: image,
+          media_library: { config: { multiple: false } },
+        }
+
+  - name: aside
+    label: Barra Lateral
+    folder: content/aside
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          name: contentType,
+          label: Content Type,
+          widget: hidden,
+          default: aside-item,
+        }
+      - { name: enabled, label: Habilitado, widget: boolean, default: true }
+      - { name: label, label: Nombre, required: true }
+      - { name: link, label: Enlace, required: true }
+      - {
+          name: image,
+          label: Imagen,
+          required: true,
+          widget: image,
+          media_library: { config: { multiple: false } },
+        }
