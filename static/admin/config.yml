@@ -48,6 +48,14 @@ collections:
         widget: string
         required: true
         label: Texto Secciones
+      - name: Featured Image
+        media_folder: src/content/sections/thumbnails
+        label: thumbnail
+        widget: image
+        media_library:
+          config:
+            multiple: true
+
   - name: Playlist
     label: playlist
     folder: src/content/playlist
@@ -62,6 +70,10 @@ collections:
         widget: boolean
         default: true
         label: Activar
+      - name: text
+        widget: string
+        required: true
+        label: Titulo de la playlist
       - name: text
         widget: string
         required: true
