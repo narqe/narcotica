@@ -157,7 +157,7 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title, required: true }
       - { name: image, label: Imagen, required: true, widget: image, 
-          media_folder: src/content/blog/thumbnails, 
+          media_folder: _blog/images, 
           media_library: { 
             config: { 
               multiple: false 

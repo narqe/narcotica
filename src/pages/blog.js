@@ -25,7 +25,7 @@ const Blog = ({ data }) => {
                 <div className="BlogPage__Content__Item__Data">
                   <div className="BlogPage__Content__Item__Image">
                     <img
-                      src={node.frontmatter.image}
+                      src={node.frontmatter.image.relativePath}
                       alt={node.frontmatter.title}
                     />
                   </div>
@@ -70,7 +70,9 @@ export const pageQuery = graphql`
             date(formatString: "DD/MM/YYYY")
             title
             description
-            image
+            image {
+              relativePath
+            }
             author
           }
         }
