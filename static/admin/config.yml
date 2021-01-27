@@ -56,7 +56,7 @@ collections:
           config:
             multiple: true
 
-  - name: Playlist
+  - name: playlist
     label: Playlist
     folder: src/content/playlist
     description: Aca van tus playlist
