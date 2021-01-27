@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
-  media_folder: src/content/blog/images
-  public_folder: src/content/blog/images
+
+media_folder: assets/images
+public_folder: assets
 
 collections:
   - name: settings
@@ -155,8 +156,7 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title, required: true }
-      - { name: image, label: Imagen, required: true, widget: image, 
-          media_folder: src/content/blog/images, 
+      - { name: image, label: Imagen, required: true, widget: image,
           media_library: { 
             config: { 
               multiple: false 
