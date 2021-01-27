@@ -15,7 +15,7 @@ collections:
     files: 
       - file: src/content/homepage.json
         name: HomePage
-        label: HomePage
+        label: Activar Homepage
         description: Contenido de la sección HomePage
         fields:
           - name: name
@@ -33,18 +33,36 @@ collections:
   - name: Sections
     label: Secciones
     folder: src/content/sections
-    description: Aca van ts secciones
+    description: Aca van tus secciones
     create: true
     delete: true
     fields:
       - name: name
         widget: hidden
-        default: home-page
+        default: seccion
       - name: enabled
         widget: boolean
         default: true
-        label: Home Page
+        label: Activar
       - name: text
         widget: string
         required: true
-        label: Texto Homepage
+        label: Texto Secciones
+  - name: Playlist
+    label: playlist
+    folder: src/content/playlist
+    description: Aca van tus playlist
+    create: true
+    delete: true
+    fields:
+      - name: name
+        widget: hidden
+        default: playlist
+      - name: enabled
+        widget: boolean
+        default: true
+        label: Activar
+      - name: text
+        widget: string
+        required: true
+        label: Url de la playlist
