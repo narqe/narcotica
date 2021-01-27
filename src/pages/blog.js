@@ -8,47 +8,46 @@ const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout>
-      <SEO title="Blog" />
-      <div className="BlogPage BlogPage__Container container">
-        <div className="BlogPage__MainContainer">
-          <div className="BlogPage__Title MainSection__Title">Blog</div>
-          <div className="BlogPage__Content row">
-            {posts.map(({ node }) => (
-              <Link
-                key={node.fields.slug}
-                to={node.fields.slug}
-                className="BlogPage__Content__Item col-4"
-              >
-                {node.frontmatter.title}
-
-                <div className="BlogPage__Content__Item__Data">
-                  <div className="BlogPage__Content__Item__Image">
-                    <img
-                      src={'../'+ node.frontmatter.image}
-                      alt={node.frontmatter.title}
+      <Layout>
+        <SEO title="Blog" />
+        <div className="BlogPage BlogPage__Container container">
+          <div className="BlogPage__MainContainer">
+            <div className="BlogPage__Title MainSection__Title">Blog</div>
+            <div className="BlogPage__Content row">
+              {posts.map(({ node }) => (
+                <Link
+                  key={node.fields.slug}
+                  to={node.fields.slug}
+                  className="BlogPage__Content__Item col-4"
+                >
+                  {node.frontmatter.title}
+  
+                  <div className="BlogPage__Content__Item__Data">
+                    <div className="BlogPage__Content__Item__Image">
+                      <img
+                        src={'../'+node.frontmatter.image}
+                        alt={node.frontmatter.title}
+                      />
+                    </div>
+  
+                    <div
+                      className="BlogPage__Content__Item__Description"
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
                     />
                   </div>
-
-                  <div
-                    className="BlogPage__Content__Item__Description"
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </div>
-                <div className="BlogPage__Content__Item__Metadata">
-                  <small>{node.frontmatter.author}</small>
-                  <small>{node.frontmatter.date}</small>
-                </div>
-              </Link>
-            ))}
+                  <div className="BlogPage__Content__Item__Metadata">
+                    <small>{node.frontmatter.date}</small>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </Layout>
-  );
-};
+      </Layout>
+    )
+  };
 
 export default Blog;
 
@@ -71,7 +70,6 @@ export const pageQuery = graphql`
             title
             description
             image
-            author
           }
         }
       }

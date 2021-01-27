@@ -20,7 +20,7 @@ const BlogPostTemplate = (props) => {
         <div className="BlogPostTemplate__MainContainer">
           <div className="BlogPostTemplate__Main">
             <div className="BlogPostTemplate__Main__Image">
-              <img src={'../' + post.frontmatter.image} alt={post.frontmatter.title} />
+              <img src={post.frontmatter.image} alt={post.frontmatter.title} />
             </div>
 
             <div
@@ -36,9 +36,6 @@ const BlogPostTemplate = (props) => {
             />
 
             <div className="BlogPostTemplate__Main__Footer">
-              <div className="BlogPostTemplate__Main__Footer__Author">
-                {post.frontmatter.author}
-              </div>
               <div className="BlogPostTemplate__Main__Footer__Date">
                 {post.frontmatter.date}
               </div>
@@ -63,7 +60,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         image
-        author
       }
     }
   }
