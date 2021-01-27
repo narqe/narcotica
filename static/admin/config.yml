@@ -5,6 +5,64 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
+  - name: settings
+    label: Configuración
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: siteConfig
+        file: src/content/settings/siteConfig.json
+        label: Datos del sitio
+        description: Datos generales del sitio
+        fields:
+          - name: siteTitle
+            widget: string
+            required: true
+            label: Título del sitio
+          - name: siteDescription
+            widget: string
+            required: true
+            label: Descripción del sitio
+          - name: author
+            widget: string
+            required: true
+            label: Autor
+          - name: contactEmail
+            widget: string
+            label: Email de contacto
+            required: false
+          - name: contactPhone
+            widget: string
+            label: Teléfono de contacto
+            required: false
+          - name: socialNetworks
+            label: Redes Sociales
+            widget: object
+            fields:
+              - name: facebook
+                label: Facebook
+                required: false
+              - name: twitter
+                label: Twitter
+                required: false
+              - name: instagram
+                label: Instagram
+                required: false
+              - name: linkedin
+                label: LinkedIn
+                required: false
+              - name: youtube
+                label: YouTube
+                required: false
+              - name: twitch
+                label: Twitch
+                required: false
+              - name: tumblr
+                label: Tumblr
+                required: false
+
   - name: Homepage
     label: Inicio
     description: Contenido de la página de inicio
@@ -98,7 +156,14 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title, required: true }
-      - { name: image, label: Imagen, required: true, widget: image, media_library: { config: { multiple: true } },}
+      - { name: image, label: Imagen, required: true, widget: image, 
+          media_folder: src/content/blog/thumbnails, 
+          media_library: { 
+            config: { 
+              multiple: false 
+            }
+          }
+        }
       - { name: description, label: Description, widget: text, required: true }
       - { name: body, label: Body, widget: markdown, required: true }
       - { name: category, label: Categoria, widget: select, multiple: true, options: ["Libros", "Cine/Series", "Música", "Fotografía", "Juegos", "Destacados"]}
