@@ -101,3 +101,5 @@ collections:
       - { name: image, label: Imagen, required: true, widget: image, media_library: { config: { multiple: true } },}
       - { name: description, label: Description, widget: text, required: true }
       - { name: body, label: Body, widget: markdown, required: true }
+      - { name: category, label: Categoria, widget: select, multiple: true, options: ["Libros", "Cine/Series", "Música", "Fotografía", "Juegos", "Destacados"]}
+      - { name: author, label: Autor }
