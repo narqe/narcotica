@@ -48,7 +48,7 @@ collections:
         widget: string
         required: true
         label: Texto Secciones
-      - name: Featured Image
+      - name: Image
         media_folder: src/content/sections/thumbnails
         label: thumbnail
         widget: image
