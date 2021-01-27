@@ -57,7 +57,7 @@ collections:
             multiple: true
 
   - name: playlist
-    label: Playlist
+    label: playlist
     folder: src/content/playlist
     description: Aca van tus playlist
     create: true
@@ -79,35 +79,25 @@ collections:
         required: true
         label: Url de la playlist
       - name: Image
-        media_folder: src/content/playlists/thumbnails
+        media_folder: src/content/playlist/thumbnails
         label: thumbnail
         widget: image
         media_library:
           config:
-            multiple: false
+            multiple: true
 
-    - name: Blog
-      label: Blog
-      folder: src/content/blog
-      create: true
-      delete: true
-      fields:
-        - {
-            name: contentType,
-            label: Content Type,
-            widget: hidden,
-            default: blog-post,
-          }
-        - { name: enabled, label: Publicado, widget: boolean, default: true }
-        - { name: path, label: Path }
-        - { name: date, label: Date, widget: date }
-        - { name: title, label: Title, required: true }
-        - {
-          name: image,
-          label: Imagen,
-          required: true,
-          widget: image,
-          media_library: { config: { multiple: true } },
-        }
-        - { name: description, label: Description, widget: text, required: true }
-        - { name: body, label: Body, widget: markdown, widget: text, required: true }
+  - name: Blog
+    label: Blog
+    folder: src/content/blog
+    description: Aca van tus posts
+    create: true
+    delete: true
+    fields:
+      - { name: contentType, label: Content Type, widget: hidden, default: blog-post,}
+      - { name: enabled, label: Publicado, widget: boolean, default: true }
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title, required: true }
+      - { name: image, label: Imagen, required: true, widget: image, media_library: { config: { multiple: true } },}
+      - { name: description, label: Description, widget: text, required: true }
+      - { name: body, label: Body, widget: markdown, widget: text, required: true }
