@@ -71,10 +71,10 @@ collections:
         default: true
         label: Activar
       - name: text
-        widget: string
+        widget: text
         required: true
         label: Titulo de la playlist
-      - name: text
+      - name: url
         widget: string
         required: true
         label: Url de la playlist
