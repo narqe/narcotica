@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  media_folder: src/content/blog/images, 
 
 collections:
   - name: settings
