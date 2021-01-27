@@ -100,4 +100,4 @@ collections:
       - { name: title, label: Title, required: true }
       - { name: image, label: Imagen, required: true, widget: image, media_library: { config: { multiple: true } },}
       - { name: description, label: Description, widget: text, required: true }
-      - { name: body, label: Body, widget: markdown, widget: text, required: true }
+      - { name: body, label: Body, widget: markdown, required: true }
