@@ -2,5 +2,10 @@
   "siteTitle": "Narcotica",
   "siteDescription": "El vicio es cultura",
   "author": "Narqe",
-  "contactEmail": "joelacef@gmail.com"
+  "contactEmail": "joelacef@gmail.com",
+  "socialNetworks": {
+    "tumblr": "http://water-monkey.tumblr.com/",
+    "linkedin": "https://www.linkedin.com/in/joelacef/",
+    "instagram": "https://www.instagram.com/judansuki"
+  }
 }
