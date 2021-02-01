@@ -28,6 +28,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
+    {/* TO DO: NAVBAR COMPONENT */}
   </header>
 )
 

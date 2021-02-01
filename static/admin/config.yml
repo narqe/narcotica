@@ -98,16 +98,9 @@ collections:
     create: true
     delete: true
     fields:
-      - name: name
+      - name: contentType
         widget: hidden
         default: seccion
-      - name: contentType, 
-        label: Content Type, 
-        widget: hidden, 
-        default: sections,
-      - name: slug, 
-        label: slug, 
-        widget: text, 
       - name: enabled
         widget: boolean
         default: true
@@ -115,17 +108,17 @@ collections:
       - name: text
         widget: string
         required: true
-        label: Texto Secciones
+        label: Titulo Secciones
       - name: Image
         media_folder: src/content/sections/thumbnails
-        label: thumbnail
+        label: Imagen de Portada
         widget: image
         media_library:
           config:
             multiple: true
 
   - name: playlist
-    label: playlist
+    label: Playlists
     folder: src/content/playlist
     description: Aca van tus playlist
     create: true
