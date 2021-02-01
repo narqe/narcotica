@@ -20,7 +20,7 @@ const BlogPostTemplate = (props) => {
         <div className="BlogPostTemplate__MainContainer">
           <div className="BlogPostTemplate__Main">
             <div className="BlogPostTemplate__Main__Image">
-              <img src={post.frontmatter.image} alt={post.frontmatter.title} />
+              <img src={'../../'+post.frontmatter.image} alt={post.frontmatter.title} />
             </div>
 
             <div

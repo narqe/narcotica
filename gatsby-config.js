@@ -44,6 +44,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/settings`,
+        name: `siteConfig`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
