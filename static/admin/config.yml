@@ -101,6 +101,13 @@ collections:
       - name: name
         widget: hidden
         default: seccion
+      - name: contentType, 
+        label: Content Type, 
+        widget: hidden, 
+        default: sections,
+      - name: slug, 
+        label: slug, 
+        widget: text, 
       - name: enabled
         widget: boolean
         default: true
