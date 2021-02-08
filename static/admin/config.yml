@@ -145,7 +145,7 @@ collections:
         required: true
         label: Url de la playlist
       - name: image
-        media_folder: static/assets/images/playlists/ 
+        media_folder: static/assets/images/playlists/
         label: thumbnail
         widget: image
         media_library:
@@ -165,7 +165,7 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title, required: true }
       - { name: image, label: Imagen, required: true, widget: image,
-          media_folder: static/assets/images/blog,
+          media_folder: static/assets/images/blog/,
           media_library: { 
             config: { 
               multiple: false 

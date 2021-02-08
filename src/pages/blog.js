@@ -25,7 +25,7 @@ const Blog = ({ data }) => {
                   <div className="BlogPage__Content__Item__Data">
                     <div className="BlogPage__Content__Item__Image">
                       <img
-                        src={'../../'+node.frontmatter.image}
+                        src={'../'+node.frontmatter.image}
                         alt={node.frontmatter.title}
                       />
                     </div>
