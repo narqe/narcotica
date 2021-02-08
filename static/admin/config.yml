@@ -145,7 +145,7 @@ collections:
         required: true
         label: Url de la playlist
       - name: image
-        media_folder: static/assets/images/playlists
+        media_folder: static/assets/images/playlists/ 
         label: thumbnail
         widget: image
         media_library:
