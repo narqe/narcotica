@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import SEO from '../../components/seo';
-import Layout from '../../layouts/Layout';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
 
-const CustomPageTemplate = (props) => {
+const PlaylistsPageTemplate = (props) => {
   const post = props.data.markdownRemark;
 
   return (
@@ -25,16 +25,16 @@ const CustomPageTemplate = (props) => {
         </div>
         <div className="CustomPageTemplate__MainContainer">
           <div
-            className="CustomPageTemplate__Main"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+              className="CustomPageTemplate__Main"
+              dangerouslySetInnerHTML={{ __html: post.frontmatter.url }}
+            />
         </div>
       </div>
     </Layout>
   );
 };
 
-export default CustomPageTemplate;
+export default PlaylistsPageTemplate;
 
 export const pageQuery = graphql`
   query PageBySlug($slug: String!) {
@@ -46,6 +46,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        url
       }
     }
   }

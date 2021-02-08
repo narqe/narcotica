@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 
-const Blog = ({ data }) => {
+const Libros = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -12,7 +12,7 @@ const Blog = ({ data }) => {
         <SEO title="Blog" />
         <div className="BlogPage BlogPage__Container container">
           <div className="BlogPage__MainContainer">
-            <div className="BlogPage__Title MainSection__Title">Blog</div>
+            <div className="BlogPage__Title MainSection__Title">Libros</div>
             <div className="BlogPage__Content row">
               {posts.map(({ node }) => (
                 <Link
@@ -25,7 +25,7 @@ const Blog = ({ data }) => {
                   <div className="BlogPage__Content__Item__Data">
                     <div className="BlogPage__Content__Item__Image">
                       <img
-                        src={'../../'+node.frontmatter.image}
+                        src={'../'+node.frontmatter.image}
                         alt={node.frontmatter.title}
                       />
                     </div>
@@ -49,16 +49,18 @@ const Blog = ({ data }) => {
     )
   };
 
-export default Blog;
+export default Libros;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, 
       filter: {
-        frontmatter: { enabled: { eq: true }, contentType: { eq: "blog-post" } }
-      }
-    ) {
+        frontmatter: {
+          enabled: {eq: true}, 
+          contentType: {eq: "blog-post"}, 
+          category: {eq: "libros" }
+        }
+      }) {
       edges {
         node {
           excerpt
@@ -70,6 +72,10 @@ export const pageQuery = graphql`
             title
             description
             image
+            category
+            author
+            enabled
+            path
           }
         }
       }

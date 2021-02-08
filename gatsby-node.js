@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPostComponent = path.resolve(`./src/templates/blog-post.js`);
-  const customPageComponent = path.resolve(`./src/templates/custom-page.js`); 
+  const playlistsPostTemplate = path.resolve(`./src/templates/playlists-post.js`); 
 
   return graphql(
     `
@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
           filter: {
             frontmatter: {
               enabled: { eq: true }
-              contentType: { in: ["page", "blog-post"] }
+              contentType: { in: ["playlists", "blog-post"] }
             }
           }
         ) {
@@ -44,10 +44,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     edges.forEach((edge, index) => {
       let path = edge.node.fields.slug;
-      let component = customPageComponent;
+      let component = playlistsPostTemplate;
 
       if (edge.node.frontmatter.contentType === 'blog-post') {
         component = blogPostComponent;
+      }
+
+      if (edge.node.frontmatter.contentType === 'playlists') {
+        component = playlistsPostTemplate;
       }
 
       createPage({
@@ -76,6 +80,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
       if (node.frontmatter.contentType === 'blog-post') {
         pathValue = `/blog${pathValue}`;
+      }
+
+      if (node.frontmatter.contentType === 'playlists') {
+        pathValue = `/playlists${pathValue}`;
       }
     }
 

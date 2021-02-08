@@ -39,8 +39,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/sections`,
-        name: `page`,
+        path: `${__dirname}/src/content/playlist`,
+        name: `playlists`,
       },
     },
     {
@@ -52,9 +52,16 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-responsive-iframe`],
+      },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {},
+    }
   ],
 }

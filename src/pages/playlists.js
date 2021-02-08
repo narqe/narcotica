@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
 
-const Blog = ({ data }) => {
+const Playlists = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -12,7 +12,7 @@ const Blog = ({ data }) => {
         <SEO title="Blog" />
         <div className="BlogPage BlogPage__Container container">
           <div className="BlogPage__MainContainer">
-            <div className="BlogPage__Title MainSection__Title">Blog</div>
+            <div className="BlogPage__Title MainSection__Title">Playlists</div>
             <div className="BlogPage__Content row">
               {posts.map(({ node }) => (
                 <Link
@@ -26,7 +26,7 @@ const Blog = ({ data }) => {
                     <div className="BlogPage__Content__Item__Image">
                       <img
                         src={'../../'+node.frontmatter.image}
-                        alt={node.frontmatter.title}
+                        alt={node.frontmatter.name}
                       />
                     </div>
   
@@ -37,9 +37,6 @@ const Blog = ({ data }) => {
                       }}
                     />
                   </div>
-                  <div className="BlogPage__Content__Item__Metadata">
-                    <small>{node.frontmatter.date}</small>
-                  </div>
                 </Link>
               ))}
             </div>
@@ -49,16 +46,16 @@ const Blog = ({ data }) => {
     )
   };
 
-export default Blog;
+export default Playlists;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { enabled: { eq: true }, contentType: { eq: "blog-post" } }
-      }
-    ) {
+    allMarkdownRemark(filter: {
+      frontmatter: {
+        contentType: {eq: "playlists"},
+        enabled: {eq: true}
+        }
+      }) {
       edges {
         node {
           excerpt
@@ -66,9 +63,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD/MM/YYYY")
+            name
             title
-            description
+            path
+            url
             image
           }
         }
